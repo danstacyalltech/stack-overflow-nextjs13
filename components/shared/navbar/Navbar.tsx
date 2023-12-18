@@ -2,6 +2,7 @@ import { SignedIn, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Theme from "./Theme";
 
 const Navbar = () => {
   return (
@@ -21,7 +22,7 @@ const Navbar = () => {
       </Link>
       GlobalSearch Component
       <div className="flex-between gap-5">
-        {/* Theme Component */}
+        <Theme />
         {/* This "SignedIn" component is from Clerk that makes it so that you must be signed in the view the code nested within this component. */}
         <SignedIn>
           <UserButton
