@@ -27,9 +27,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   };
 
   // This tells the app to call the handleThemeChange function every time the mode changes.
-  useEffect(() => {
-    handleThemeChange();
-  }, [mode]);
+  // useEffect(() => {
+  //   handleThemeChange();
+  // }, [mode]);
 
   // Every provider has to return something, and almost always it is the context value.
   // Whatever we pass to the value prop, will be available to all children components globally.
