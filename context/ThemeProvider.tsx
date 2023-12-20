@@ -17,19 +17,26 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   // Here we create a function that will handle the theme change.
   const handleThemeChange = () => {
-    if (mode === "dark") {
-      setMode("light");
-      document.documentElement.classList.add("light");
-    } else {
+    // This checks if the theme is dark, or if the user's system is set to dark mode.
+    if (
+      // Here we check if the theme is dark
+      localStorage.theme === "dark" ||
+      // Here we check if the user's system is set to dark mode.
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
       setMode("dark");
+      document.documentElement.classList.add("dark");
+    } else {
+      setMode("light");
       document.documentElement.classList.remove("dark");
     }
   };
 
   // This tells the app to call the handleThemeChange function every time the mode changes.
-  // useEffect(() => {
-  //   handleThemeChange();
-  // }, [mode]);
+  useEffect(() => {
+    handleThemeChange();
+  }, [mode]);
 
   // Every provider has to return something, and almost always it is the context value.
   // Whatever we pass to the value prop, will be available to all children components globally.
