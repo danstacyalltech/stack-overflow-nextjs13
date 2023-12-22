@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Theme from "./Theme";
+import MobileNav from "./MobileNav";
+import GlobalSearch from "./search/GlobalSearch";
 
 const Navbar = () => {
   return (
@@ -20,7 +22,7 @@ const Navbar = () => {
           Dev <span>OverFlow</span>
         </p>
       </Link>
-      GlobalSearch Component
+      <GlobalSearch />
       <div className="flex-between gap-5">
         <Theme />
         {/* This "SignedIn" component is from Clerk that makes it so that you must be signed in the view the code nested within this component. */}
@@ -38,7 +40,7 @@ const Navbar = () => {
           />
         </SignedIn>
 
-        {/* MobileNavbar */}
+        <MobileNav />
       </div>
     </nav>
   );
